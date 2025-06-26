@@ -1,36 +1,28 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Basics {
     public static void main(String[] args) {
-        // primitives are pass by value, don't get modified
-        int x = 10;
-        int y = 45;
-        // objects are pass by reference and do get modified
-        Foo foo = new Foo(3);
+        varargsTest( "name", "is", "sarah");
 
-        System.out.println("X is " + x + " Y is + " + foo.num);
-
-        modify(x, foo);
-
-        System.out.println("X is " + x + " Y is + " + foo.num);
+//        firstOfFirst(Arrays.asList("one", "two"), Collections.emptyList());
 
 
     }
 
-    private static void modify(int x, Foo y) {
-        x++;
-        y.increment();
-        System.out.println("X is " + x + " Y is + " + y.num);
+    private static void varargsTest(String...values) {
+        for(String i : values) {
+            System.out.println(i);
+        }
     }
 
-    private static class Foo {
-        public int num;
+    static String firstOfFirst(List<String>... strings) {
+        List<Integer> ints = Collections.singletonList(42);
+        Object[] objects = strings;
+        objects[0] = ints; // Heap pollution
 
-        public Foo(int num) {
-            this.num = num;
-        }
-
-        public void increment() {
-            this.num++;
-        }
+        return strings[0].get(0); // ClassCastException
     }
 }
 
