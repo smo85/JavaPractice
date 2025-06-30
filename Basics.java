@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -7,41 +8,23 @@ import java.util.Random;
 public class Basics {
     public static void main(String[] args) {
 
-        String cat = "Isis";
-        System.out.println(cat + ": " + canTheCatJumpTheFenceSwitch(cat));
-
+        List<String> list = Arrays.asList("one", "two", "three");
+        ArrayList<String> newList = new ArrayList<>();
+//        list.forEach(System.out::println);  // processing order is defined
+//        System.out.println(" ");
+////        list.stream().forEach(System.out::println);  // processing order not defined
+//        list.parallelStream().forEach(System.out::println);
+        list.forEach(value -> {
+            newList.add(addAnA(value));
+        });
+        newList.forEach(System.out::println);
     }
 
-    private static String canTheCatJumpTheFence(String cat) {
-        String response;
-        if (cat.equals("Isis")) {
-            response = "Only seen it with a towel";
-        } else if (cat.equals("Miso")) {
-            response = "Yes! She wants out!!";
-        } else if (cat.equals("Sasha")) {
-            response = "Haven't seen it yet but I'm hopeful!";
-        } else {
-            response = "Please provide a valid cat!";
-        }
-        return response;
+    private static String addAnA(String value) {
+        return value + "a";
     }
 
-    private static String canTheCatJumpTheFenceSwitch(String cat) {
-        String response;
-        switch (cat) {
-            case "Isis":
-            case "Miso":
-                response = "Yes! She wants out!!";
-                break;
-            case "Sasha":
-                response = "Haven't seen it yet but I'm hopeful!";
-                break;
-            default:
-                response = "Please provide a valid cat!";
-                break;
-        }
-        return response;
-    }
+
 
 }
 
