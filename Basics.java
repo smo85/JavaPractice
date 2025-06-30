@@ -8,23 +8,13 @@ import java.util.Random;
 public class Basics {
     public static void main(String[] args) {
 
-        List<String> list = Arrays.asList("one", "two", "three");
-        ArrayList<String> newList = new ArrayList<>();
-//        list.forEach(System.out::println);  // processing order is defined
-//        System.out.println(" ");
-////        list.stream().forEach(System.out::println);  // processing order not defined
-//        list.parallelStream().forEach(System.out::println);
-        list.forEach(value -> {
-            newList.add(addAnA(value));
-        });
-        newList.forEach(System.out::println);
+        Map<Integer, String> catMap = new HashMap<>();
+        catMap.put(1, "Isis");
+        catMap.put(2, "Sasha");
+        catMap.put(3, "Miso");
+
+        catMap.forEach((key, cat) -> System.out.println(key + " " + cat));
+        catMap.entrySet().forEach(entry -> System.out.println(entry.getValue() + " - " + entry.getKey()));
     }
-
-    private static String addAnA(String value) {
-        return value + "a";
-    }
-
-
-
 }
 
