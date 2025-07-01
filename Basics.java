@@ -7,14 +7,31 @@ import java.util.Random;
 
 public class Basics {
     public static void main(String[] args) {
+        Cat miso = new Cat("Miso", "tabby", 3);
 
-        Map<Integer, String> catMap = new HashMap<>();
-        catMap.put(1, "Isis");
-        catMap.put(2, "Sasha");
-        catMap.put(3, "Miso");
+        miso.printTheCat();
+        miso.increaseAge();
+        miso.printTheCat();
+    }
+}
 
-        catMap.forEach((key, cat) -> System.out.println(key + " " + cat));
-        catMap.entrySet().forEach(entry -> System.out.println(entry.getValue() + " - " + entry.getKey()));
+class Cat {
+    private String name;
+    private String breed;
+    private Integer age;
+
+    public Cat(String name, String breed, Integer age) {  // constructor to create new objects
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+    }
+
+    public void increaseAge() {
+        this.age++;
+    }
+
+    public void printTheCat() {
+        System.out.println(this.name + " is " + this.age);
     }
 }
 
