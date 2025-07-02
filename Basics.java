@@ -1,10 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 public class Basics {
     public static void main(String[] args) {
         Cat miso = new Cat("Miso", "tabby", 3);
@@ -12,10 +5,12 @@ public class Basics {
         miso.printTheCat();
         miso.increaseAge();
         miso.printTheCat();
+        System.out.println(miso.eat());
+        System.out.println(miso.sound());
     }
 }
 
-class Cat {
+class Cat extends Animal implements Actions {  // concrete class, we can create an instance of it
     private String name;
     private String breed;
     private Integer age;
@@ -33,5 +28,22 @@ class Cat {
     public void printTheCat() {
         System.out.println(this.name + " is " + this.age);
     }
+
+    public String sound() {
+        return "meow";
+    }
+}
+
+abstract class Animal {
+    public abstract String sound();
+
+    public String eat() {
+        return "munch munch";
+    }
+}
+
+interface Actions {
+    String sound();
+    String eat();
 }
 
