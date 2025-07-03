@@ -1,49 +1,30 @@
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Optional;
+import java.util.Random;
+
 public class Basics {
     public static void main(String[] args) {
-        Cat miso = new Cat("Miso", "tabby", 3);
+        Random randomNumber = new Random();
+        Integer testValue = randomNumber.nextInt(100);
+        System.out.println(isEven(testValue) + " " + testValue);
+        Optional<String> evenString = Optional.ofNullable(isEven(testValue));
+        String someString = evenString.orElse(thisOtherFunction());
+        // so this or else runs regardless, but it only returns the string if evenString is null
+        System.out.println(someString);
+    }
 
-        miso.printTheCat();
-        miso.increaseAge();
-        miso.printTheCat();
-        System.out.println(miso.eat());
-        System.out.println(miso.sound());
+    private static String isEven(Integer num) {
+        if(num % 2 == 0) {
+            return "even!";
+        }
+        return null;
+    }
+
+    private static String thisOtherFunction() {
+        System.out.println("I am running!");
+        return "hello";
     }
 }
 
-class Cat extends Animal implements Actions {  // concrete class, we can create an instance of it
-    private String name;
-    private String breed;
-    private Integer age;
-
-    public Cat(String name, String breed, Integer age) {  // constructor to create new objects
-        this.name = name;
-        this.breed = breed;
-        this.age = age;
-    }
-
-    public void increaseAge() {
-        this.age++;
-    }
-
-    public void printTheCat() {
-        System.out.println(this.name + " is " + this.age);
-    }
-
-    public String sound() {
-        return "meow";
-    }
-}
-
-abstract class Animal {
-    public abstract String sound();
-
-    public String eat() {
-        return "munch munch";
-    }
-}
-
-interface Actions {
-    String sound();
-    String eat();
-}
 
