@@ -7,7 +7,7 @@ public class Basics {
         Integer testValue = randomNumber.nextInt(100);
         System.out.println(isEven(testValue) + " " + testValue);
         Optional<String> evenString = Optional.ofNullable(isEven(testValue));
-        String someString = evenString.orElse(thisOtherFunction());
+        String someString = evenString.orElseGet(() -> thisOtherFunction());
         // so this or else runs regardless, but it only returns the string if evenString is null
         System.out.println(someString);
     }
