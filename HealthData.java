@@ -1,12 +1,14 @@
 class HealthData {
   Integer hrv;
   Integer rhr;
+  String userName;
 
   // parameterized constructor
   // allows us to inject values into the object
-  public HealthData(Integer hrv, Integer rhr) {
+  public HealthData(Integer hrv, Integer rhr, String userName) {
     this.hrv = hrv;
     this.rhr = rhr;
+    this.userName = userName;
   }
 
   // this is an example of a no arg constructor, this is added by default if you dont add one
@@ -15,9 +17,10 @@ class HealthData {
     this.rhr = 60;
   }
 
-  public HealthData(HealthData other) {
+  public HealthData(HealthData other, String userName) {
     this.hrv = other.hrv;
     this.rhr = other.rhr;
+    this.userName = userName;
   }
 
   public Integer getHrv() {
@@ -36,9 +39,13 @@ class HealthData {
     this.rhr = rhr;
   }
 
+  public String getUserName() {
+    return userName;
+  }
+
   @Override
   public String toString() {
-    String template = "HealthData{hrv=%d, rhr=%d}";
-    return template.formatted(hrv, rhr);
+    String template = "%s: hrv=%d, rhr=%d";
+    return template.formatted(userName, hrv, rhr);
   }
 }
