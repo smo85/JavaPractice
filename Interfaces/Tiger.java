@@ -1,4 +1,6 @@
-public class Tiger implements Animal{
+package Interfaces;
+
+public class Tiger implements Animal {
   @Override
   public String makeSound() {
     return "RAWR";

@@ -1,3 +1,5 @@
+package Interfaces;
+
 class Enemy extends Character {
   Integer x;
   Integer y;
