@@ -1,11 +1,17 @@
+import Inheritance.Dinosaur;
+import Inheritance.Ecosystem;
+import Inheritance.Trex;
+import Interfaces.Animal;
+import Interfaces.Gazelle;
+import Interfaces.Herbivore;
+import Interfaces.Tiger;
+
 public class main {
   public static void main(String[] args) {
-    Herbivore gaz = new Gazelle();
-    Animal bigFluff = new Tiger();
-    System.out.println(gaz.makeSound());
-    bigFluff.printAnimal();
-    bigFluff.drinkWater();
-    gaz.drinkWater();
-    gaz.runFromPredator();
+    Ecosystem myForest = new Ecosystem("forest", new Trex());
+    Dinosaur forestRex = myForest.getDinosaur();
+    System.out.println(forestRex.attack());
+
+    // figure out how to get this to work
   }
 }

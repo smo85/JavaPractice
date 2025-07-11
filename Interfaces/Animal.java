@@ -1,11 +1,13 @@
+package Interfaces;
+
 public interface Animal {
-  String animal = "ANIMAL";
+  String ANIMAL = "ANIMAL";
 
   String makeSound();
   String eat();
 
   static boolean isAnimal(String speciesType) {
-    if(speciesType.equals(animal)) {
+    if(speciesType.equals(ANIMAL)) {
       return true;
     }
     return false;

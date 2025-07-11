@@ -1,3 +1,5 @@
+package Interfaces;
+
 public abstract class Character {
   String name;
   String type;

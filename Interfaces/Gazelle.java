@@ -1,3 +1,5 @@
+package Interfaces;
+
 public class Gazelle implements Herbivore {
   @Override
   public String makeSound() {
