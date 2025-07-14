@@ -1,17 +1,24 @@
-import Inheritance.Dinosaur;
-import Inheritance.Ecosystem;
-import Inheritance.Trex;
-import Interfaces.Animal;
-import Interfaces.Gazelle;
-import Interfaces.Herbivore;
-import Interfaces.Tiger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
   public static void main(String[] args) {
-    Ecosystem myForest = new Ecosystem("forest", new Trex());
-    Dinosaur forestRex = myForest.getDinosaur();
-    System.out.println(forestRex.attack());
+    Book b1 = new Book("Effective Java", "Mr. Java");
+    Book b2 = new Book("Less-Effective Java", "Mr. Python");
+    Book b3 = new Book("Fun Stuff", "Miss FunStuff");
 
-    // figure out how to get this to work
+    List<Book> book = new ArrayList<Book>();
+    book.add(b1);
+    book.add(b2);
+    book.add(b3);
+
+    Library library = new Library(book);
+
+    List<Book> books = library.getBooksInLibrary();
+
+    for(Book b : books) {
+      System.out.println("Title: " + b.title
+      + "\nAuthor: " + b.author);
+    }
   }
 }
